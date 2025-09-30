@@ -1,0 +1,124 @@
+body {
+    background-color: #1A1A1A; /* Dark background from your theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars if content is slightly larger */
+    font-family: 'Roboto Mono', monospace; /* Use your thematic font */
+}
+
+.monitor-frame {
+    width: 320px; /* Width of the monitor */
+    height: 280px; /* Height of the monitor */
+    background-color: #333; /* Dark gray for the monitor casing */
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4); /* Glow effect */
+    position: relative;
+    border: 3px solid #00FF00; /* Neon green border */
+}
+
+.monitor-screen {
+    width: 100%;
+    height: calc(100% - 60px); /* Adjust height for button/base */
+    background-color: #0d0d0d; /* Very dark background for screen */
+    border: 2px inset #00E000; /* Inset border for depth */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.screen-content {
+    text-align: center;
+    color: #00FF00; /* Green text for screen display */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font for screen */
+    text-shadow: 0 0 5px #00FF00; /* Soft glow for text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%; /* Take full height of screen-content area */
+}
+
+.screen-content p {
+    margin: 5px 0;
+    font-size: 0.8em;
+    color: #4D7298; /* Subtler blue for instructional text */
+    font-family: 'Roboto Mono', monospace;
+}
+
+.display-area {
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background for number */
+    border: 1px solid #00FF00;
+    padding: 10px 20px;
+    margin: 10px auto;
+    width: fit-content;
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.bucket-display {
+    font-family: 'Press Start 2P', cursive; /* Ideal for pixelated numbers */
+    font-size: 2.5em; /* Large number */
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00;
+    /* Simulate pixelation if font not available */
+    /* text-rendering: optimizeSpeed; image-rendering: pixelated; */
+}
+
+/* Optional: Scanline effect */
+.monitor-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 1; /* Ensure scanlines are on top */
+}
+
+.monitor-button {
+    background-color: #00FF00;
+    color: #1A1A1A;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    margin-top: 15px; /* Space from other elements */
+    width: 80%; /* Make button span most of the screen */
+}
+
+.monitor-button:hover {
+    background-color: #00E000;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.9);
+}
+
+.monitor-base {
+    width: 80%;
+    height: 15px;
+    background-color: #222;
+    margin: 10px auto 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.instruction-text {
+    font-size: 0.7em !important; /* Smaller for secondary text */
+    color: #777 !important;
+}
+
+/* Optional: Add 'Press Start 2P' font for pixelated numbers if available through CDN */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Make sure 'Press Start 2P' is available via a link in the head of your HTML or local host */
